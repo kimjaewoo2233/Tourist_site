@@ -1,0 +1,327 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NelnaLizzyChae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/NelnaLizzyChae.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ChusaLove';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/ChusaLove.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+body{
+    height:800px;
+    margin: 0;
+    width: 100%;
+}
+header{
+    position: relative;
+}
+.main_menu{
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+.background{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+ul {
+    width: 100%;
+    list-style-type: none;
+    margin-top: 0;
+    padding: 0;
+    right: 300px;
+    float: right;
+    position: absolute;
+}
+ul:after{
+    content:'';
+    display: block;
+    clear:both;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+li a:hover{
+    transition: 1s;
+    font-size: 35px;
+}
+.swiper{
+    position: relative;
+    height: 530px;
+}
+.swiper .swiper-wrapper .swiper-slide img{
+    height: 530px;
+}
+.swiper .swiper-wrapper .swiper-slide img{
+    width: 100%;
+
+}
+swiper swiper-button-prev,swiper-button-next{
+    height: 100px;
+    position: absolute;
+    top: 50%;
+}
+.center{
+    width: 1500px;
+    height: 450px;
+    margin: 0 auto;
+}
+.container-first,
+.container-two,
+.container-three{
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    margin-left: 78px;
+    margin-top: 80px;
+    border-radius: 30%;
+
+}
+.center_img{
+    border-radius: 30%;
+}
+.center_img:hover{
+    margin-bottom: 30px;
+    border-radius: 5%;
+    transition: 3s;
+}
+
+
+.description{
+    margin-top: 100px;
+}
+.description .des-left{
+    float: left;
+    height: 300px;
+    width: 70%;
+    transform: translateX(-480px);
+    position: relative;
+    opacity: 0;
+    
+}
+.show .des-left{
+    transform:translate(0);
+    transition: 3s;
+    opacity: 1;
+}
+.show .des-right{
+    opacity: 1;
+    transition: 4s;
+
+
+}
+
+
+.des-title{
+    font-family: 'EarlyFontDiary';
+    font-size: 70px;
+    font-weight: bolder;
+    position: absolute;
+}
+.des-content{
+    font-family: GangwonEdu_OTFBoldA;
+    font-size: 30px;
+    position: absolute;
+    display: block;
+    top: 70px;
+    overflow: hidden;
+}
+
+.des-right{
+    float: right;
+    height: 400px;
+    width: 30%;
+    overflow:hidden;
+    opacity: 0;
+}
+.des-right img{
+    border-radius: 40px 50px / 50px  40px;
+}
+
+
+.h-description{
+}
+.des-two-left{
+    float: left;
+    width: 25%;
+    margin-top: -10px;
+    opacity: 0;
+    
+}
+
+.show .des-two-left{
+    margin-top: 100px;
+    opacity: 1;
+}
+
+
+.des-two-right{
+    float: right;
+    width: 65%;
+    height: 400px;
+    top: 500px;
+    position: relative;
+    top:0;
+    margin-top: 180px;
+    opacity: 0;
+}
+.show .des-two-right{
+    margin-top: 0;
+}
+
+.des-two-right .des-two-content{
+    font-family: GangwonEdu_OTFBoldA;
+    font-size: 30px;
+    position: absolute;
+    top:70;
+}
+
+
+
+
+.marg{
+    width: 100%;
+    height: 200px;
+    background-color: lightgray;
+    position: relative;
+}
+.marg div{
+    position: absolute;
+    left: 37%;
+    
+    line-height: 300px;
+    width: 700px;
+    margin:0 auto;
+    opacity: 0;
+    font-family: NelnaLizzyChae;
+    font-size: 60px;
+}
+.show div{
+    transition: 4s;
+    opacity: 1;
+    line-height: 200px;
+}
+
+
+
+
+
+.board-container{
+    display: block;
+    position: relative;
+    top: 600px;
+    width: 100%;
+    height: 500px;
+}
+.board-container table{
+    margin-top: 100px;
+    opacity: 0;
+}
+.show table{
+    margin-top: 0;
+    transition: 3s;
+    opacity: 1;
+}
+
+.board-container table{
+    position: absolute;
+    top: 45%;
+    left: 15%;
+    width: 1100px;
+    border-collapse: collapse;
+}
+.board-container table tr td{
+    text-align: center;
+}
+.img-btn{
+    opacity: 0;
+}
+.show .img-btn{
+    opacity: 1;
+    transition: 3s;
+}
+.w-btn-neon2 {
+    position: relative;
+    margin-left: 80%;
+    border: none;
+    min-width: 120px;
+    min-height: 40px;
+    background: linear-gradient(
+        90deg,
+        rgba(129, 230, 217, 1) 0%,
+        rgba(79, 209, 197, 1) 100%
+    );
+    border-radius: 1000px;
+    color: darkslategray;
+    cursor: pointer;
+    box-shadow: 12px 12px 24px rgba(79, 209, 197, 0.64);
+    font-weight: 700;
+    transition: 0.3s;
+    bottom: 80%;
+}   
+.w-btn-neon2:hover {
+transform: scale(1.2);
+}
+
+.w-btn-neon2:hover::after {
+content: "";
+width: 30px;
+height: 30px;
+border-radius: 100%;
+border: 6px solid #00ffcb;
+position: absolute;
+z-index: -1;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+animation: ring 1.5s infinite;
+}
+
+
+.fot{
+    background-color: rgb(88, 92, 100);
+    position: relative;
+    bottom: 0;
+    top: 100%;
+    width: 100%;
+    height: 300px;
+    background-image: url(./images/footer.png);
+}
+.fot .ft-font{
+    top: 20%;
+    left: 30%;
+    font-size: 30px;
+    position: absolute;
+    font-family: ChusaLove;
+    color: aliceblue;
+}
