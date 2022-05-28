@@ -35,7 +35,7 @@ public class EditController extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		
-		MultipartRequest mr = FileUtil.uploadFile(req, saveDirectory, 180000);
+		MultipartRequest mr = FileUtil.uploadFile(req, saveDirectory, 100000);
 		String prevOfile = mr.getParameter("prevOfile");
 		String prevSfile = mr.getParameter("prevSfile");
 		
@@ -52,22 +52,17 @@ public class EditController extends HttpServlet {
 		
 		 String fileName = mr.getFilesystemName("ofile");
 	        if (fileName != null) {
-	            // 첨부 파일이 있을 경우 파일명 변경
-	            // 새로운 파일명 생성
 	            String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
 	            String ext = fileName.substring(fileName.lastIndexOf("."));
 	            String newFileName = now + ext;
 
-	            // 파일명 변경
 	            File oldFile = new File(saveDirectory + File.separator + fileName);
 	            File newFile = new File(saveDirectory + File.separator + newFileName);
 	            oldFile.renameTo(newFile);
 
-	            // DTO에 저장
-	            dto.setOfile(fileName);  // 원래 파일 이름
-	            dto.setSfile(newFileName);  // 서버에 저장된 파일 이름
+	            dto.setOfile(fileName); 
+	            dto.setSfile(newFileName);  
 
-	            // 기존 파일 삭제
 	            FileUtil.deleteFile(req, "/fileSave", prevSfile);
 	        }else {
 	        	dto.setOfile(prevOfile);
@@ -77,7 +72,7 @@ public class EditController extends HttpServlet {
 	        int result = dao.updatePost(dto);
 	        dao.close();
 	        System.out.println(result);
-	        if (result == 1) {  // 수정 성공
+	        if (result == 1) { 
 	        	System.out.println(result);
 	        	
 	        	req.setAttribute("dto", dto);

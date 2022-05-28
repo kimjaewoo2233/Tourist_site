@@ -12,22 +12,21 @@ public class UserTestDAO extends Connection {
 				String query = "SELECT * FROM user "; 
 				
 				 try {
-			            stmt = con.createStatement();   // 쿼리문 생성
-			            rs = stmt.executeQuery(query);  // 쿼리 실행
+			            stmt = con.createStatement();   // 荑쇰━臾� �깮�꽦
+			            rs = stmt.executeQuery(query);  // 荑쇰━ �떎�뻾
 
-			            while (rs.next()) {  // 결과를 순화하며...
-			                // 한 행(게시물 하나)의 내용을 DTO에 저장
+			            while (rs.next()) {  // 寃곌낵瑜� �닚�솕�븯硫�...
+			                // �븳 �뻾(寃뚯떆臾� �븯�굹)�쓽 �궡�슜�쓣 DTO�뿉 ���옣
 			                UserTestDTO dto = new UserTestDTO(); 
 
-			                dto.setName(rs.getString("name"));          // 일련번호
-			                dto.setMajor(rs.getString("major"));      // 제목
-			                dto.setEmail(rs.getString("email"));  // 내용
+			                dto.setName(rs.getString("name"));          // �씪�젴踰덊샇
+			                dto.setMajor(rs.getString("major"));      // �젣紐�
+			                dto.setEmail(rs.getString("email"));  // �궡�슜
 
-			                bbs.add(dto);  // 결과 목록에 저장
+			                bbs.add(dto);  // 寃곌낵 紐⑸줉�뿉 ���옣
 			            }
 			        } 
 			        catch (Exception e) {
-			            System.out.println("게시물 조회 중 예외 발생");
 			            e.printStackTrace();
 			        }
 

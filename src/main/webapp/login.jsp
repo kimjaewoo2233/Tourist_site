@@ -40,7 +40,7 @@
 	%>
 <div class="container" align="center">
 	
-	<h3 class="form-signin-heading">Please sign in</h3>
+	<h3 class="form-signin-heading">·Î±×ÀÎ</h3>
 		<form class="form-signin" action="/Web_jsp/login" method="post">
 			<div class="form-group">
 				<label class="sr-only">User Name</label>

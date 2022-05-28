@@ -25,7 +25,7 @@ public class FileDAO extends Connection {
             applyResult = psmt.executeUpdate();
         }
         catch (Exception e) {
-            System.out.println("INSERT 중 예외 발생");
+            System.out.println("INSERT");
             e.printStackTrace();
         }        
         return applyResult;
@@ -33,14 +33,12 @@ public class FileDAO extends Connection {
 	public List<FileDTO> myFileList() {
         List<FileDTO> fileList = new Vector<FileDTO>();
 
-        // 쿼리문 작성
         String query = "SELECT * FROM myfile ORDER BY id DESC";
         try {
-            psmt = con.prepareStatement(query);  // 쿼리 준비
-            rs = psmt.executeQuery();  // 쿼리 실행
+            psmt = con.prepareStatement(query); 
+            rs = psmt.executeQuery();  
 
-            while (rs.next()) {  // 목록 안의 파일 수만큼 반복
-                // DTO에 저장
+            while (rs.next()) {  
             	FileDTO dto = new FileDTO();
             	dto.setId(rs.getString(1));
             	dto.setName(rs.getString(2));
@@ -50,15 +48,15 @@ public class FileDAO extends Connection {
                 dto.setSfile(rs.getString(6));
                 dto.setDateCreated(rs.getString(7));
                 
-                fileList.add(dto);  // 목록에 추가
+                fileList.add(dto);  // 紐⑸줉�뿉 異붽�
             }
         }
         catch (Exception e) {
-            System.out.println("SELECT 시 예외 발생");
+            System.out.println("SELECT");
             e.printStackTrace();
         }        
         
-        return fileList;  // 목록 반환
+        return fileList;  // 紐⑸줉 諛섑솚
     }
 	
 	public FileDTO selectView(String id)
@@ -99,11 +97,10 @@ public class FileDAO extends Connection {
 	            psmt.setString(4, dto.getOfile());
 	            psmt.setString(5, dto.getSfile());
 	            psmt.setString(6, dto.getId());
-	            // 쿼리문 실행
+	            // 荑쇰━臾� �떎�뻾
 	            result = psmt.executeUpdate();
 	        }
 	        catch (Exception e) {
-	            System.out.println("게시물 수정 중 예외 발생");
 	            e.printStackTrace();
 	        }
 	        return result;
@@ -118,7 +115,6 @@ public class FileDAO extends Connection {
 			psmt.setString(1, id);
 			result = psmt.executeUpdate();
 		}catch(Exception e) {
-			System.out.println("게시물 삭제 중 예외 발생");
             e.printStackTrace();
 		}
 		return result;

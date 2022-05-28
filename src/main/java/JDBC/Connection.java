@@ -16,7 +16,6 @@ public class Connection {
 			     
 				 Class.forName("com.mysql.jdbc.Driver");
 				 con = DriverManager.getConnection(jdbcUrl,dbId ,dbPass );
-				 System.out.println("제대로 연결되었습니다.");
 			  }catch(Exception e){ 
 				 e.printStackTrace();
 			  }	
@@ -29,7 +28,7 @@ public class Connection {
 	            if (psmt != null) psmt.close();
 	            if (con != null) con.close(); 
 
-	            System.out.println("JDBC 자원 해제");
+	            System.out.println("JDBC �옄�썝 �빐�젣");
 	        }
 	        catch (Exception e) {
 	            e.printStackTrace();

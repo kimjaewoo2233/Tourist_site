@@ -7,6 +7,7 @@
 <title>회원제 게시판</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+
 $(document).ready(function(){ 
 	  var fileTarget = $('#file'); 
 	  fileTarget.on('change', function(){ // 값이 변경되면
@@ -125,7 +126,7 @@ function validateForm(form) {  // 폼 내용 검증
 				  <label class="input-file-button" for="file">
 	  			파일업로드
 				</label>
-				<input type="file" style="display:none;'" name="ofile" id="file"/>
+				<input type="file" style="display:none;'" name="ofile" id="file" onchange="this.select(); document.getElementById('filetext').value=document.selection.createRange().text.toString();"/>
 				<input class="upload-name" value="파일선택">
 			</div>
             </td>

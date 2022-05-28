@@ -99,7 +99,7 @@
             <td><%= f.getName() %></td>
             <td style="text-align: center"><a href="/Web_jsp/view.do?id=<%= f.getId()%>"><%= f.getTitle() %></a></td>
             <td><%= f.getDateCreated().substring(0,10)%></td>
-            <td><a href="/Web_jsp/fileAdmin/Download.jsp?oName=${f.getOfile() }&sName=${f.getSfile() }">
+            <td><a href="/Web_jsp/fileAdmin/Download.jsp?oName=<%= f.getOfile() %>&sName=<%= f.getSfile() %>">
             <% if(f.getOfile() != null) out.print(f.getOfile()); %></a></td>
         </tr>
     <% } %>
@@ -107,7 +107,7 @@
 	 <button style="margin-left:70%" class="w-btn-neon2" type="button" onclick="location.href='write.jsp'">
             글쓰기
     </button>
-      <button class="w-btn-neon2" type="button" onclick="location.href='../index.jsp'">
+      <button class="w-btn-neon2" type="button" onclick="location.href='/Web_jsp/index.do'">
             돌아가기
     </button>
 </body>

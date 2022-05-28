@@ -30,7 +30,7 @@
 	%>
 <div class="container" align="center">
 	
-	<h3 class="form-signin-heading">Please sign in</h3>
+	<h3 class="form-signin-heading">회원가입</h3>
 		<form class="form-signin" action="/Web_jsp/register" method="post">
 			<div class="form-group">
 				<label class="sr-only">User Name</label>

@@ -26,58 +26,45 @@ public class WriteController extends HttpServlet {
 	 @Override
 	    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	            throws ServletException, IOException {
-	        // 1. 파일 업로드 처리 =============================
-	        // 업로드 디렉터리의 물리적 경로 확인
 	        String saveDirectory = req.getServletContext().getRealPath("/fileSave");
 
-	        // 초기화 매개변수로 설정한 첨부 파일 최대 용량 확인
 	        ServletContext application = getServletContext();
-	        int maxPostSize =180000;
+	        int maxPostSize =500000;
 
-	        // 파일 업로드
 	        MultipartRequest mr = FileUtil.uploadFile(req, saveDirectory, maxPostSize);
 	        if (mr == null) {
-	            // 파일 업로드 실패
 	         
 	            return;
 	        }
 
-	        // 2. 파일 업로드 외 처리 =============================
-	        // 폼값을 DTO에 저장
 	        FileDTO dto = new FileDTO(); 
 	        HttpSession session = req.getSession();
 	        dto.setName((String)session.getAttribute("username"));
 	        dto.setTitle(mr.getParameter("title"));
 	        dto.setContent(mr.getParameter("content"));
 
-	        // 원본 파일명과 저장된 파일 이름 설정
 	        String fileName = mr.getFilesystemName("ofile");
 	        if (fileName != null) {
-	            // 첨부 파일이 있을 경우 파일명 변경
-	            // 새로운 파일명 생성
 	            String now = new SimpleDateFormat("yyyyMMdd_HmsS").format(new Date());
 	            String ext = fileName.substring(fileName.lastIndexOf("."));
 	            String newFileName = now + ext;
 
-	            // 파일명 변경
 	            File oldFile = new File(saveDirectory + File.separator + fileName);
 	            File newFile = new File(saveDirectory + File.separator + newFileName);
 	            oldFile.renameTo(newFile);
 	            
-	            dto.setOfile(fileName);  // 원래 파일 이름
-	            dto.setSfile(newFileName);  // 서버에 저장된 파일 이름
+	            dto.setOfile(fileName);  // �썝�옒 �뙆�씪 �씠由�
+	            dto.setSfile(newFileName);  // �꽌踰꾩뿉 ���옣�맂 �뙆�씪 �씠由�
 	        }
 
-	        // DAO를 통해 DB에 게시 내용 저장
 	        FileDAO dao = new FileDAO();
 	        int result = dao.insertFile(dto);
 	        dao.close();
 
-	        // 성공 or 실패?
-	        if (result == 1) {  // 글쓰기 성공
+	        if (result == 1) {  // 湲��벐湲� �꽦怨�
 	            resp.sendRedirect("/Web_jsp/board/board.jsp");
 	        }
-	        else {  // 글쓰기 실패
+	        else {  // 湲��벐湲� �떎�뙣
 	        	resp.sendRedirect("/Web_jsp/board/board.jsp");
 	        }
 }

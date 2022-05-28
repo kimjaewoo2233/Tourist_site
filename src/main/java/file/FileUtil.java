@@ -13,7 +13,6 @@ import com.oreilly.servlet.MultipartRequest;
 
 public class FileUtil {
 
-		//파일업로드(multipart/form-data) 처리
 		public static MultipartRequest uploadFile(HttpServletRequest req,
 				String saveDirectory,int maxPostSize) {
 			try {
@@ -55,11 +54,9 @@ public class FileUtil {
 	            iStream.close();
 	            oStream.close();
 			}catch (FileNotFoundException e) {
-	            System.out.println("파일을 찾을 수 없습니다.");
 	            e.printStackTrace();
 	        }
 	        catch (Exception e) {
-	            System.out.println("예외가 발생하였습니다.");
 	            e.printStackTrace();
 	        }
 			}
