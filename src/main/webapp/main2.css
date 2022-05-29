@@ -214,17 +214,18 @@ swiper swiper-button-prev,swiper-button-next{
     height: 200px;
     background-color: lightgray;
     position: relative;
+      z-index:2;
 }
 .marg div{
     position: absolute;
-    left: 37%;
-    
+    z-index:5;
+    left: 33%;
     line-height: 300px;
-    width: 700px;
+    width: 900px;
     margin:0 auto;
     opacity: 0;
     font-family: NelnaLizzyChae;
-    font-size: 60px;
+    font-size: 45px;
 }
 .show div{
     transition: 4s;

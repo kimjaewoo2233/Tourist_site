@@ -28,7 +28,7 @@ public class Connection {
 	            if (psmt != null) psmt.close();
 	            if (con != null) con.close(); 
 
-	            System.out.println("JDBC �옄�썝 �빐�젣");
+	            System.out.println("JDBC 해제");
 	        }
 	        catch (Exception e) {
 	            e.printStackTrace();

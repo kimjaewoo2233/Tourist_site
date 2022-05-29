@@ -74,6 +74,7 @@
             td{
             text-align:center;}
             a{
+            	color:black;
             	text-decoration: none;
             }
     </style>
@@ -99,7 +100,7 @@
             <td><%= f.getName() %></td>
             <td style="text-align: center"><a href="/Web_jsp/view.do?id=<%= f.getId()%>"><%= f.getTitle() %></a></td>
             <td><%= f.getDateCreated().substring(0,10)%></td>
-            <td><a href="/Web_jsp/fileAdmin/Download.jsp?oName=<%= f.getOfile() %>&sName=<%= f.getSfile() %>">
+            <td><a href="/Web_jsp/down.do?oName=<%= f.getOfile() %>&sName=<%= f.getSfile() %>">
             <% if(f.getOfile() != null) out.print(f.getOfile()); %></a></td>
         </tr>
     <% } %>

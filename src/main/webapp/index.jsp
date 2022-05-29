@@ -5,7 +5,7 @@
 <html>
   <head>
     <title>$Title$</title>
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./main2.css">
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>

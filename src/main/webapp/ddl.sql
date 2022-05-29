@@ -8,8 +8,8 @@ create table myfile(
 		name varchar(20) not null,
 		title varchar(50) not null,
 		content TEXT not null,
-		ofile varchar(100) default 'ì—†ìŒ' ,
-		sfile varchar(100) default 'ì—†ìŒ',
+		ofile varchar(100) default '¾øÀ½' ,
+		sfile varchar(100) default '¾øÀ½',
 	  DateCreated DATETIME DEFAULT NOW()
 );
 drop table myfile;
