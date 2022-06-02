@@ -6,7 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>회원제 게시판</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){ 
+	  var fileTarget = $('#file'); 
+	  fileTarget.on('change', function(){ // 값이 변경되면
+	      var filename = document.getElementById('file').files[0].name;
+	    $(".upload-name").val(filename);
+	  }); 
+	});
+
+
 function validateForm(form) {  // 폼 내용 검증
     if (form.title.value == "") {
         alert("제목을 입력하세요.");
@@ -78,12 +88,19 @@ function validateForm(form) {  // 폼 내용 검증
             	
             	
             }
+                   	.input-file-button{
+		  padding: 6px 25px;
+		  background-color:darkslategray;
+		  border-radius: 4px;
+		  color: white;
+		  cursor: pointer;
+		}
             
             </style>
 </head>
 <body>
 
-<h2>회원제 게시판 - 글쓰기</h2>
+<h2>회원제 게시판 - 수정하기</h2>
 
 	<form name="writeFrm" method="post" action="/Web_jsp/edit.do"  enctype="multipart/form-data">
 		<input type="hidden" name="idx" value="${ dto.getId() }"/>
@@ -109,14 +126,20 @@ function validateForm(form) {  // 폼 내용 검증
             </td>
             <td>
             	${ dto.getOfile() }
-            	<input type="file" name="ofile"/>
+              <div class="filebox" style="margin-top:40px"> 
+				  <label class="input-file-button" for="file">
+	  			파일업로드
+				</label>
+				<input type="file" style="display:none;'" name="ofile" id="file" accept=".png" />
+				<input class="upload-name" value="파일선택">
+			</div>
             </td>
         </tr>
         <tr style="width=100%;" >
             <td colspan="4" align="center">
                 <button class="w-btn-neon2" type="submit">작성 완료</button>
                 <button class="w-btn-neon2" type="reset">다시 입력</button>
-                <button class="w-btn-neon2" type="button" onclick="location.href='/Web_jsp/board.jsp';">
+                <button class="w-btn-neon2" type="button" onclick="location.href='board.jsp';">
                     목록 보기</button>
             </td>
         </tr>

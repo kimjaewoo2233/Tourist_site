@@ -15,7 +15,7 @@ import user.UserDTO;
 
 
 @WebServlet("/pass.do")
-public class Pass extends HttpServlet {
+public class PassController extends HttpServlet {
 
 	
 		protected void doGet(HttpServletRequest request
@@ -37,16 +37,20 @@ public class Pass extends HttpServlet {
 				if(session_email.equals(userDto.getEmail())){
 					String url = "/Web_jsp/edit.do?id="+id;
 					response.sendRedirect(url);
-				}	
-			}else if(mode.equals("delete")) {
-				System.out.println("pass-----"+id);
-				deleteResult = dao.deletePost(id);
-				System.out.println("pass-----"+deleteResult);
-				if(deleteResult == 1) {
-					response.sendRedirect("/Web_jsp/board/board.jsp");
 				}else {
-					AlrtJs.alertBack(response, "ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”");
+					AlrtJs.alertBack(response, "±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
 				}
+			}else if(mode.equals("delete")) {
+				if(session_email.equals(userDto.getEmail())) {
+					deleteResult = dao.deletePost(id);
+					System.out.println("pass-----"+deleteResult);
+					if(deleteResult == 1) {
+						response.sendRedirect("/Web_jsp/board/board.jsp");
+					}else {
+						AlrtJs.alertBack(response, "»èÁ¦Áß¿¡·¯¹ß»ı");
+					}
+				}
+				AlrtJs.alertBack(response, "±ÇÇÑÀÌ ¾ø½À´Ï´Ù");
 			}
 			
 		}

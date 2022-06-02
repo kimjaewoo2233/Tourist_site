@@ -25,8 +25,8 @@ public class FileDAO extends Connection {
             applyResult = psmt.executeUpdate();
         }
         catch (Exception e) {
-            System.out.println("INSERT");
-            e.printStackTrace();
+            System.out.println("등록 중 어떤 값을 넣지 않았습니다");
+          
         }        
         return applyResult;
     }

@@ -19,7 +19,6 @@ public class UserRegister extends HttpServlet{
 			
 					UserDAO dao= new UserDAO();
 					 result = dao.setUserDTO(username, password, email);
-					 System.out.println(result);
 					if(result == -1) {
 						response.sendRedirect("/Web_jsp/addUser.jsp?found=not");
 					}else if(result == -2) {

@@ -35,7 +35,7 @@ public class EditController extends HttpServlet {
 		
 		HttpSession session = req.getSession();
 		
-		MultipartRequest mr = FileUtil.uploadFile(req, saveDirectory, 100000);
+		MultipartRequest mr = FileUtil.uploadFile(req, saveDirectory, 500000);
 		String prevOfile = mr.getParameter("prevOfile");
 		String prevSfile = mr.getParameter("prevSfile");
 		

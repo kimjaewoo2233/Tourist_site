@@ -11,11 +11,10 @@
 $(document).ready(function(){ 
 	  var fileTarget = $('#file'); 
 	  fileTarget.on('change', function(){ // 값이 변경되면
-	      var cur=$(".filebox input[type='file']").val();
-	    $(".upload-name").val(cur);
+	      var filename = document.getElementById('file').files[0].name;
+	    $(".upload-name").val(filename);
 	  }); 
 	});
-
 
 
 function validateForm(form) {  // 폼 내용 검증
@@ -101,7 +100,8 @@ function validateForm(form) {  // 폼 내용 검증
 </head>
 <body>
 <h2>회원제 게시판 - 글쓰기</h2>
-	<form name="writeFrm" method="post" action="/Web_jsp/upload.do"  enctype="multipart/form-data">
+	<form name="writeFrm" method="post" action="/Web_jsp/upload.do"  enctype="multipart/form-data"
+	 onsubmit="return validateForm(this);">
 
     <table >
         <tr>
@@ -126,7 +126,7 @@ function validateForm(form) {  // 폼 내용 검증
 				  <label class="input-file-button" for="file">
 	  			파일업로드
 				</label>
-				<input type="file" style="display:none;'" name="ofile" id="file" onchange="this.select(); document.getElementById('filetext').value=document.selection.createRange().text.toString();"/>
+				<input type="file" style="display:none;'" name="ofile" id="file" accept=".png" />
 				<input class="upload-name" value="파일선택">
 			</div>
             </td>

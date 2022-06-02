@@ -24,7 +24,7 @@ create table user(
 insert into user(username,password,email) VALUES ("test","1234","ta3844@naver.com");
 desc myfile;
 select * from myfile;
-drop table myfile;
+drop table user;
 
 create table Member(
 	id VARCHAR(20) NOT NULL,
